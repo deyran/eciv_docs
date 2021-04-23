@@ -1,0 +1,63 @@
+CREATE TABLE `eciv_docs_bd`.`fin_entrada` ( `ID_FIN` INT(10) NOT NULL , `ID_PESSOA` INT(10) NOT NULL , `DATA_PG` DATE NOT NULL , `VALOR_TOTAL` FLOAT(10,2) NOT NULL , PRIMARY KEY (`ID_FIN`(10))) ENGINE = MyISAM;
+----------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `eciv_docs_bd`.`FIN_ENTRADA_ITEN` (
+	`ID_FIN_ITEN` INT(10) NOT NULL,
+	`ID_FIN` INT(10) NOT NULL,
+	
+	`ID_FIN_FOR` INT (10) NOT NULL,
+	`TIPO_PG` INT(2) NOT NULL,
+	´ID_ORG`  INT(2) NOT NULL,
+
+	`DESCRICAO` VARCHAR(100) NOT NULL,
+	`DESC_CONTROLE` VARCHAR(100) NOT NULL,
+	`VALOR` FLOAT(10,2) NOT NULL,
+
+	PRIMARY KEY(`ID_FIN_ITEN`),
+	FOREIGN KEY(`ID_FIN`) REFERENCES `eciv_docs_bd`.`fin_entrada`(`ID_FIN`)
+
+)
+----------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `eciv_docs_bd`.`FIN_ENTRADA_FORMA` (
+	`ID_FIN_FOR` INT(10) NOT NULL,
+	`DESCRICAO` VARCHAR(100) NOT NULL,
+
+	PRIMARY KEY(`ID_FIN_FOR`)
+);
+
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(0, 'Em espécie');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(1, 'débito');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(2, 'Boleto');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(3, 'Crédito à vista');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(4, 'Crédito parcelado');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(5, 'Pix');
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_FORMA`(`ID_FIN_FOR`, `DESCRICAO`) VALUES(6, 'Antecipado');
+----------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(
+	`ID_ORG` INT(10) NOT NULL,
+	`DESCRICAO` VARCHAR(100) NOT NULL,
+
+	PRIMARY KEY(`ID_ORG`)
+);
+
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(`ID_ORG`, `DESCRICAO`) VALUES(0, 'Mensalidade'); 
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(`ID_ORG`, `DESCRICAO`) VALUES(1, 'Uniforme'); 
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(`ID_ORG`, `DESCRICAO`) VALUES(2, 'Cantina'); 
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(`ID_ORG`, `DESCRICAO`) VALUES(3, 'Negociação De Débito(s)'); 
+INSERT INTO `eciv_docs_bd`.`FIN_ENTRADA_ORIGEM`(`ID_ORG`, `DESCRICAO`) VALUES(4, 'Outros'); 
+----------------------------------------------------------------------------------------------------------------------------------	
+
+CREATE TABLE `eciv_docs_bd`.`FIN_ENTRADA_MENS`(
+	`ID_FIN_MENS` INT(10) NOT NULL,
+	`ID_FIN_ITEN` INT(10) NOT NULL,
+	`ID_TUR_AL` INT(10) NOT NULL,
+	`ID_ORG` INT(10) NOT NULL,
+	`PARCELA` INT(10) NOT NULL,
+
+	PRIMARY KEY(`ID_FIN_MENS`),
+	FOREIGN KEY(`ID_FIN_ITEN`) REFERENCES `eciv_docs_bd`.`FIN_ENTRADA_ITEN`(`ID_FIN_ITEN`),
+	FOREIGN KEY(`ID_TUR_AL`) REFERENCES `eciv_docs_bd`.`PESSOA`(`ID_PES`)
+)
+

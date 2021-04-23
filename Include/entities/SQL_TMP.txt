@@ -1,0 +1,59 @@
+SELECT A.ID_PES, A.DESCRICAO, P2.ID_FIN, P2.IDP2, P2.DESC_FIN 
+FROM PESSOA AS A INNER JOIN (
+
+	SELECT F.ID_FIN, P.ID_PES AS IDP2, F.DESCRICAO AS DESC_FIN
+	FROM financeiro AS F INNER JOIN (
+
+	    SELECT P.ID_PES, P.DESCRICAO 
+		FROM pessoa AS P
+		WHERE P.ID_FIN = -1
+    
+	) AS P ON P.DESCRICAO=F.DESCRICAO
+
+) P2 ON A.ID_FIN=P2.ID_FIN
+
+WHERE A.ID_FIN >-1
+
+------------------------------------------------------------------------------------------------------
+
+SELECT A.ID_PES AS ID_PES1, P2.IDP2 AS ID_PES2, 0 AS ID_TIPO_VINC
+FROM PESSOA AS A INNER JOIN (
+
+	SELECT F.ID_FIN, P.ID_PES AS IDP2, F.DESCRICAO AS DESC_FIN
+	FROM financeiro AS F INNER JOIN (
+
+	    SELECT P.ID_PES, P.DESCRICAO 
+		FROM pessoa AS P
+		WHERE P.ID_FIN = -1
+    
+	) AS P ON P.DESCRICAO=F.DESCRICAO
+
+) P2 ON A.ID_FIN=P2.ID_FIN
+
+WHERE A.ID_FIN >-1
+------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `eciv_docs_bd`.`pessoa_vinc` ( 
+	`ID_PES1` INT(10) NOT NULL , 
+	`ID_PES2` INT(10) NOT NULL , 
+	`ID_TIPO_VINC` INT(10) NOT NULL , 
+	PRIMARY KEY (`ID_PES1`, `ID_PES2`, `ID_TIPO_VINC`)
+) ENGINE = MyISAM;
+------------------------------------------------------------------------------------------------------
+
+INSERT INTO `eciv_docs_bd`.`pessoa_vinc` (`ID_PES1`, `ID_PES2`, `ID_TIPO_VINC`)
+SELECT A.ID_PES AS ID_PES1, P2.IDP2 AS ID_PES2, 0 AS ID_TIPO_VINC
+FROM PESSOA AS A INNER JOIN (
+
+	SELECT F.ID_FIN, P.ID_PES AS IDP2, F.DESCRICAO AS DESC_FIN
+	FROM financeiro AS F INNER JOIN (
+
+	    SELECT P.ID_PES, P.DESCRICAO 
+		FROM pessoa AS P
+		WHERE P.ID_FIN = -1
+    
+	) AS P ON P.DESCRICAO=F.DESCRICAO
+
+) P2 ON A.ID_FIN=P2.ID_FIN
+
+WHERE A.ID_FIN >-1

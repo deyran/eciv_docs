@@ -1,0 +1,46 @@
+
+Pagador
+CPF	72159170291
+Nome	SOLANGE TAVARES DA S
+Endereço	IIII
+Cidade	BELEM
+CEP	66615-080
+Pagador eletrônico do DDA	Não
+
+
+Dados do título
+Carteira	17
+Nosso número	00029519290000000885
+Situação título	Liquidado
+Espécie	DM
+N° título beneficiário	1219A0302
+Agência remetente	3106-2 CASTANHEIRA
+Mensagem título	
+Situação E-mail	CLIENTE NAO RECEBE TIT. POR E-MAIL.
+Modalidade cobrança	SIMPLES COM REGISTRO
+Data vencimento	15/03/2021
+Data entrada	26/01/2021
+Data emissão	26/01/2021
+Data 1º desconto	
+Valor 1º desconto	R$ 0,00
+Data 2º desconto	
+Valor 2º desconto	R$ 0,00
+Valor IOF	R$ 0,00
+Valor abatimento	R$ 0,00
+Valor título	R$ 217,35
+Percentual de multa	2,00 %
+Data da multa	16/03/2021
+Data limite p/ vencidos	13/06/2021
+Aceita pagamento parcial	Não
+Negativação	Não
+Agente Negativador	
+Data de envio	
+Juros	0,00
+Multa	0,00
+Outros recebimentos	0,00
+Valor IOF recebido	0,00
+Valor abatimento concedido	0,00
+Valor reajuste	0,00
+Valor desconto concedido	0,00
+Valor pago pelo pagador	217,35
+Data do pagamento do título	15/03/2021
