@@ -1,0 +1,14 @@
+FONT: https://youtu.be/upn2zRYglsU
+DATE: 04-28-21
+PATH: http://localhost/eciv_docs/Include/demos/autocomplete/celke/index.php
+
+1 - CRIAR ESTRUTURA BÁSICA
+2 - BUSCAR BIBLIOTECA DO JQUERY
+    2.1 - LINKS DA BIBLIOTECA DO GOOGLE
+        https://developers.google.com/speed/libraries
+    2.2 - CSS E JS
+        2.2.1 - <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+        2.2.2 - <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>    
+
+        2.2.3 - <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
