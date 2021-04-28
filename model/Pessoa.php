@@ -77,7 +77,9 @@ class Pessoa
             {
                 if($this->RETURN_PES_JSON)
                 {
-                    $ALL_DATA[] = $DADOS_ROW;
+                    $ALL_DATA[] = array(
+                        "value"=>$DADOS_ROW[0],
+                        "label"=>$DADOS_ROW[1]);
                 } 
                 else
                 {
