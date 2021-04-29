@@ -13,7 +13,7 @@
 <body>
     <h1>Pesquisar pessoa</h1>
 
-    <form>
+    <form method="POST" action="">
         <label>Nome da pessoa:</label>
         <input type="text" name="descricao" id="descricao" placeholder="Digite o nome da pessoa" />
     </form>

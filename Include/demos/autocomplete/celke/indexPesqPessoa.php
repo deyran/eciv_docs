@@ -13,6 +13,8 @@ $SQL_QUERY ="SELECT P.* FROM PESSOA AS P WHERE P.DESCRICAO = '%$assunto%' LIMIT 
 $RESULT = $CONNECTION->prepare($SQL_QUERY);
 $RESULT->execute();
 
+$DATA = [];
+
 while($ROW = $RESULT->fetch(PDO::FETCH_ASSOC))
 {
 	$DATA[] = $ROW["DESCRICAO"];
