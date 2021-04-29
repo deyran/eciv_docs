@@ -23,7 +23,9 @@
 
     <script type="text/javascript">
         $(function() {
-
+            $("#descricao").autocomplete({
+                source: 'indexPesqPessoa.php'
+            });
         });
 
     </script>
