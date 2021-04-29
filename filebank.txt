@@ -1,25 +1,25 @@
 Pagador
-CPF	183572297
-Nome	KARLA DANYELLA ANTUN
-Endereço	CONJ GLEBA II 6 RUA 104
+CPF	64723933204
+Nome	MARLOS AUGUSTO SILVA
+Endereço	PASSAGEM DALVA SN
 Cidade	BELEM
-CEP	66623-210
+CEP	66615-080
 Pagador eletrônico do DDA	Não
 
 
 Dados do título
 Carteira	17
-Nosso número	00029519290000000863
+Nosso número	00029519290000001151
 Situação título	Liquidado
 Espécie	DM
-N° título beneficiário	1213A0300
+N° título beneficiário	1213A0301
 Agência remetente	3106-2 CASTANHEIRA
 Mensagem título	
 Situação E-mail	CLIENTE NAO RECEBE TIT. POR E-MAIL.
 Modalidade cobrança	SIMPLES COM REGISTRO
 Data vencimento	05/03/2021
-Data entrada	25/01/2021
-Data emissão	25/01/2021
+Data entrada	23/02/2021
+Data emissão	23/02/2021
 Data 1º desconto	
 Valor 1º desconto	R$ 0,00
 Data 2º desconto	
@@ -27,7 +27,7 @@ Valor 2º desconto	R$ 0,00
 Valor IOF	R$ 0,00
 Valor abatimento	R$ 0,00
 Valor título	R$ 288,75
-Percentual de multa	2,00 %
+Percentual de multa	1,00 %
 Data da multa	06/03/2021
 Data limite p/ vencidos	03/06/2021
 Aceita pagamento parcial	Não
@@ -42,4 +42,4 @@ Valor abatimento concedido	0,00
 Valor reajuste	0,00
 Valor desconto concedido	0,00
 Valor pago pelo pagador	288,75
-Data do pagamento do título	05/03/2021
+Data do pagamento do título	24/02/2021
