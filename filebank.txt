@@ -1,35 +1,35 @@
 Pagador
-CPF	64723933204
-Nome	MARLOS AUGUSTO SILVA
-Endereço	PASSAGEM DALVA SN
-Cidade	BELEM
-CEP	66615-080
+CPF	66180864268
+Nome	PAULO ROGERIO PINTO
+Endereço	P
+Cidade	P
+CEP	66666-666
 Pagador eletrônico do DDA	Não
 
 
 Dados do título
 Carteira	17
-Nosso número	00029519290000001151
+Nosso número	00029519290000001222
 Situação título	Liquidado
 Espécie	DM
-N° título beneficiário	1213A0301
+N° título beneficiário	1217A0413
 Agência remetente	3106-2 CASTANHEIRA
 Mensagem título	
 Situação E-mail	CLIENTE NAO RECEBE TIT. POR E-MAIL.
 Modalidade cobrança	SIMPLES COM REGISTRO
-Data vencimento	05/03/2021
-Data entrada	23/02/2021
-Data emissão	23/02/2021
-Data 1º desconto	
-Valor 1º desconto	R$ 0,00
-Data 2º desconto	
-Valor 2º desconto	R$ 0,00
+Data vencimento	05/04/2021
+Data entrada	30/03/2021
+Data emissão	30/03/2021
+Data 1º desconto	31/03/2021
+Valor 1º desconto	R$ 100,00
+Data 2º desconto	05/04/2021
+Valor 2º desconto	R$ 60,00
 Valor IOF	R$ 0,00
 Valor abatimento	R$ 0,00
-Valor título	R$ 288,75
-Percentual de multa	1,00 %
-Data da multa	06/03/2021
-Data limite p/ vencidos	03/06/2021
+Valor título	R$ 500,00
+Valor da multa	R$ 0,00
+Data da multa	
+Data limite p/ vencidos	04/07/2021
 Aceita pagamento parcial	Não
 Negativação	Não
 Agente Negativador	
@@ -40,6 +40,6 @@ Outros recebimentos	0,00
 Valor IOF recebido	0,00
 Valor abatimento concedido	0,00
 Valor reajuste	0,00
-Valor desconto concedido	0,00
-Valor pago pelo pagador	288,75
-Data do pagamento do título	24/02/2021
+Valor desconto concedido	100,00
+Valor pago pelo pagador	400,00
+Data do pagamento do título	30/03/2021
