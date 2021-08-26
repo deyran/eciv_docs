@@ -1,45 +1,45 @@
 Pagador
-CPF	66180864268
-Nome	PAULO ROGERIO PINTO
-Endereço	P
-Cidade	P
-CEP	66666-666
+CPF	72014776253
+Nome	VIVIANE GUIMARAES DA
+Endereço	PPP
+Cidade	BELEM
+CEP	66615-080
 Pagador eletrônico do DDA	Não
 
 
 Dados do título
 Carteira	17
-Nosso número	00029519290000001222
+Nosso número	00029519290000001004
 Situação título	Liquidado
 Espécie	DM
-N° título beneficiário	1217A0413
+N° título beneficiário	1217A6A0706
 Agência remetente	3106-2 CASTANHEIRA
 Mensagem título	
 Situação E-mail	CLIENTE NAO RECEBE TIT. POR E-MAIL.
 Modalidade cobrança	SIMPLES COM REGISTRO
-Data vencimento	05/04/2021
-Data entrada	30/03/2021
-Data emissão	30/03/2021
-Data 1º desconto	31/03/2021
-Valor 1º desconto	R$ 100,00
-Data 2º desconto	05/04/2021
-Valor 2º desconto	R$ 60,00
+Data vencimento	05/07/2021
+Data entrada	29/01/2021
+Data emissão	29/01/2021
+Data 1º desconto	
+Valor 1º desconto	R$ 0,00
+Data 2º desconto	
+Valor 2º desconto	R$ 0,00
 Valor IOF	R$ 0,00
 Valor abatimento	R$ 0,00
-Valor título	R$ 500,00
-Valor da multa	R$ 0,00
-Data da multa	
-Data limite p/ vencidos	04/07/2021
+Valor título	R$ 744,00
+Percentual de multa	2,00 %
+Data da multa	06/07/2021
+Data limite p/ vencidos	03/10/2021
 Aceita pagamento parcial	Não
 Negativação	Não
 Agente Negativador	
 Data de envio	
-Juros	0,00
+Juros	37,88
 Multa	0,00
 Outros recebimentos	0,00
 Valor IOF recebido	0,00
 Valor abatimento concedido	0,00
 Valor reajuste	0,00
-Valor desconto concedido	100,00
-Valor pago pelo pagador	400,00
-Data do pagamento do título	30/03/2021
+Valor desconto concedido	0,00
+Valor pago pelo pagador	781,88
+Data do pagamento do título	28/07/2021
