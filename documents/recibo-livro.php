@@ -4,10 +4,6 @@ include("../Include/fpdf186/fpdf.php");
 
 $DataBaseObj = new DataBase(); 
 
-//$pdf = new FPDF("P", "mm", "A4");
-//$pdf->AddPage();
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 $SQL_QUERY = "
 SELECT R.* FROM recibolivro AS R WHERE R.Turma = '3 Ano Medio'";
 
@@ -16,10 +12,11 @@ $DataBaseObj->connection_bd();
 $RESULT_DB    = $DataBaseObj->getConnecation()->query($SQL_QUERY);
 $NUM_LINES_DB = mysqli_affected_rows($DataBaseObj->getConnecation());
 
+$_CountPerson = 0;
+
 if($NUM_LINES_DB > 0) 
 {
-    $pdf = new FPDF("P", "mm", "A4");
-
+    $pdf = new FPDF("P", "mm", "A4");    
     while($DADOS_ROW = mysqli_fetch_array($RESULT_DB, MYSQLI_NUM))
     {
         $pdf->AddPage();
@@ -27,30 +24,30 @@ if($NUM_LINES_DB > 0)
 
         $pdf->Image("img/logo.jpg", 90, 2.1, 28.5, 30);
         //------------------------------------------------------------
-        
-        $Title = $DataBaseObj->encoding("RECIBO DE ENTREGA DE LIVRO 4º BIMESTRE");
+
+        $Title = $DataBaseObj->encoding("RECIBO DE ENTREGA DE LIVRO 4º BIMESTRE ");
                 
         $pdf->SetXY(52, 39);
         $pdf->SetFont("Courier", "", 12);
         $pdf->Write(1, $Title);
         //------------------------------------------------------------
 
-        $_ID = strtoupper($DADOS_ROW[0]);
-        $_TURMA = strtoupper($DADOS_ROW[1]);
+        $_ID          = strtoupper($DADOS_ROW[0]);
+        $_TURMA       = strtoupper($DADOS_ROW[1]);
         $_RESPONSAVEL = strtoupper($DADOS_ROW[2]);
-        $_ALUNO = strtoupper($DADOS_ROW[3]);
-        $_LIVRO = strtoupper($DADOS_ROW[4]);
+        $_ALUNO       = strtoupper($DADOS_ROW[3]);
+        $_LIVRO       = strtoupper($DADOS_ROW[4]);
         //------------------------------------------------------------
 
         $Text = 
         "\t\t\t\t\t\t\t\tEu, _ALUNO_, matriculado na turma _TURMA_, declaro que recebi _LIVRO_, que foi adquirido pelo  Sr(a). _RESPONSAVEL_. Reconheço que o produto foi entregue emperfeitas condições de uso, sem defeitos ou avarias, e que recebi todas as orientações e informações necessárias sobre o mesmo. Assumo, a partir desta data, a total responsabilidade pelo produto.";
         
+        $Text = $DataBaseObj->encoding($Text); 
+
         $Text = str_replace("_ALUNO_", $_ALUNO, $Text);
         $Text = str_replace("_TURMA_", $_TURMA, $Text);
         $Text = str_replace("_LIVRO_", $_LIVRO, $Text);
         $Text = str_replace("_RESPONSAVEL_", $_RESPONSAVEL, $Text);
-        
-        $Text = $DataBaseObj->encoding($Text); 
             
         $pdf->SetXY(10, 47);
         $pdf->SetFont("Courier", "", 11);
@@ -74,7 +71,7 @@ if($NUM_LINES_DB > 0)
         
         $pdf->SetXY(0, 99);
         $pdf->SetFont("Courier", "", 11);
-        $pdf->MultiCell(0, 5, $Assinatura1, 0, "C");
+        $pdf->MultiCell(0, 5, $Assinatura1, 0, "C");        
     }   
 
     $pdf->Output(); 
