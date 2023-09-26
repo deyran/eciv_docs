@@ -60,6 +60,10 @@ class DataBase
 
 		return $NEW_ID;
 	}
-		
+
+	public function encoding($P_TEXT)
+	{
+		return mb_convert_encoding($P_TEXT, "ISO-8859-1", "UTF-8");
+	}
 }
 ?>
