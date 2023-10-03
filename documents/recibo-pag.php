@@ -1,9 +1,9 @@
 <?php
-include("../model/DataBase.php");
+include("../model/DataTrat.php");
 include("../Include/fpdf186/fpdf.php");
 //------------------------------------------------
 
-$DataBaseObj = new DataBase(); 
+$DataTratObj = new DataTrat(); 
 //------------------------------------------------
 
 $pdf = new FPDF("P", "mm", "A4");
@@ -20,7 +20,7 @@ $pdf->Write(1, "Protocolo");
 //------------------------------------------------
 
 //Número protocolo
-$NumProtocolo = $DataBaseObj->SequenceRandom();
+$NumProtocolo = $DataTratObj->SequenceRandom();
 $pdf->SetXY(50, 40);
 $pdf->SetFont("Courier", "", 12);
 $pdf->Write(1, $NumProtocolo);
@@ -34,7 +34,7 @@ $NomeAluno =  strtoupper("ANA CLARA GATO VILHENA DA SILVA (6º Ano)");
 $Text = 
 "\t\t\t\t\t\t\t\tPor meio deste documento, RATIFICO que o Sr(A). $NomePagador realizou o pagamento total $PgMens, no valor $PgValor, referente a prestação de serviço escolar do(s) aluno(a)(s) $NomeAluno.";
 
-$Text = $DataBaseObj->encoding($Text);
+$Text = $DataTratObj->encoding($Text);
 
 $pdf->SetXY(10, 47);
 $pdf->SetFont("Courier", "", 12);
