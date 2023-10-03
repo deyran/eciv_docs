@@ -5,7 +5,7 @@ include("../Include/fpdf186/fpdf.php");
 $DataBaseObj = new DataBase(); 
 
 $SQL_QUERY = "
-SELECT R.* FROM recibolivro AS R WHERE R.Turma = '3 Ano Medio'";
+SELECT R.* FROM recibolivro AS R WHERE R.Turma = '4 Ano'";
 
 $DataBaseObj->connection_bd();
 
@@ -40,7 +40,7 @@ if($NUM_LINES_DB > 0)
         //------------------------------------------------------------
 
         $Text = 
-        "\t\t\t\t\t\t\t\tEu, _ALUNO_, matriculado na turma _TURMA_, declaro que recebi _LIVRO_, que foi adquirido pelo  Sr(a). _RESPONSAVEL_. Reconheço que o produto foi entregue emperfeitas condições de uso, sem defeitos ou avarias, e que recebi todas as orientações e informações necessárias sobre o mesmo. Assumo, a partir desta data, a total responsabilidade pelo produto.";
+        "\t\t\t\t\t\t\t\tEu, _ALUNO_, matriculado na turma _TURMA_, declaro que recebi _LIVRO_, que foi adquirido pelo  Sr(a). _RESPONSAVEL_. Reconheço que o produto foi entregue em perfeitas condições de uso, sem defeitos ou avarias, e que recebi todas as orientações e informações necessárias sobre o mesmo. Assumo, a partir desta data, a total responsabilidade pelo produto.";
         
         $Text = $DataBaseObj->encoding($Text); 
 

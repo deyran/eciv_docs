@@ -65,5 +65,18 @@ class DataBase
 	{
 		return mb_convert_encoding($P_TEXT, "ISO-8859-1", "UTF-8");
 	}
+
+	function SequenceRandom() 
+	{
+		$caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$tamanho_caracteres = strlen($caracteres);
+		$sequencia_aleatoria = '';
+
+		for ($i = 0; $i < 40; $i++) {
+			$sequencia_aleatoria .= $caracteres[random_int(0, $tamanho_caracteres - 1)];
+		}
+
+		return strtoupper($sequencia_aleatoria);
+	}
 }
 ?>
