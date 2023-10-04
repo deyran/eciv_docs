@@ -19,10 +19,17 @@
     $Responsavel = "";
     $Aluno = "";
     $Valor = "";
+    $Parcelas = "";
 
     if(isset($_POST["Turma"])) $Turma = $_POST["Turma"];
     if(isset($_POST["Responsavel"])) $Responsavel = $_POST["Responsavel"];
 
+    if(isset($_POST["Parcelas"])) 
+    {
+        $Parcelas = array_unique($_POST["Parcelas"]);
+        $Parcelas = implode(", ",$Parcelas);
+    }
+    
     $selectedTurma = "";
     $selectedResp = "";
 
@@ -121,7 +128,7 @@
                     $Parcela = $DataTratObj->encoding($meses[$i]);?>
                     <div>
                         <input type="checkbox" 
-                            id="checkbox" name="Parcelas" 
+                            id="checkbox" name="Parcelas[]" 
                             value="<?php echo $Parcela;?>">&nbsp;<?php echo $Parcela;?>
                     </div><?php
                 }?>
