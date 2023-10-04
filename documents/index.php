@@ -18,16 +18,23 @@
                     "2º ANO MÉDIO", "3º ANO MÉDIO"); 
                     
     $Turma = "";
+    $Responsavel = "";
+    $Aluno = "";
+    $Valor = "";
+
     if(isset($_POST["Turma"])) $Turma = $_POST["Turma"];
+    if(isset($_POST["Responsavel"])) $Responsavel = $_POST["Responsavel"];
 
     $selectedTurma = "";
+    $selectedResp = "";
 
     $selected = "";
     if($Turma == "") $selected = "selected";?>
 
     <form method="post">
-        <table border="0" align="center" >
-        <tr><td>
+        <table border="0" align="center">
+        <tr><td valign="top">
+            Turma<br />
             <select name="Turma">
                 <option <?php echo $selected;?>></option><?php
                 for ($i = 0; $i < count($Turmas); $i++) 
@@ -44,15 +51,26 @@
                     $selectedTurma = "";
                 }?>
             </select>
-        </td><td><?php
+        </td><td valign="top">
+            Responsavel <br /><?php
             if($Turma != "")
             {
+                $SQL_QUERY_AUX = "";
+                if($Responsavel != "") 
+                {
+                    $SQL_QUERY_AUX = 
+                    " AND R.Responsavel='$Responsavel'";
+                }
+                
                 $SQL_QUERY = "
-                SELECT R.Responsavel
+                SELECT R.Responsavel, R.Aluno, R.Valor
                 FROM respvalor AS R
                 WHERE R.TURMA='$Turma'
+                $SQL_QUERY_AUX
                 ORDER BY R.Responsavel;";
-                
+
+               // echo $SQL_QUERY;
+
                 $DataBaseObj = new DataBase(); 
                 $DataBaseObj->connection_bd();
 
@@ -60,17 +78,36 @@
                 $NUM_LINES_DB = mysqli_affected_rows($DataBaseObj->getConnecation());
 
                 if($NUM_LINES_DB > 0) 
-                {
-                    while($DADOS_ROW = mysqli_fetch_array($RESULT_DB, MYSQLI_NUM))
-                    {
-                        echo $DADOS_ROW[0] ."<br />";
-                    }    
+                {?>
+                    <select name="Responsavel"><?php
+                        while($DADOS_ROW = mysqli_fetch_array($RESULT_DB, MYSQLI_NUM))
+                        {
+                            $Aluno = $DADOS_ROW[1];
+                            $Valor = $DADOS_ROW[2];?>
+                           <option value="<?php echo $DADOS_ROW[0];?>"><?php
+                                echo $DADOS_ROW[0];?>
+                           </option><?php
+                        }?>
+                    </select><?php    
                 }
                 
             }?>
-        </td></tr>
-        <tr><td rowspan="2" align="center">
-            <input type="submit" value="Ok">
+        </td><?php 
+            if($Responsavel != "")
+            {?>
+                <td valign="top">
+                    Aluno(a)<br />
+                    <input type="text" readonly value="<?php echo $Aluno;?>" />
+                </td><td valign="top">
+                    Parcela(a)<br />
+                </td><td valign="top">
+                    Valor(a)<br />
+                    <input type="text" value="<?php echo $Valor;?>" />
+                </td><?php
+            }?>
+        </tr>
+        <tr><td colspan="5" align="center">
+            <input type="submit" value="  Ok  ">
         </td></tr>
         </table>
     </form><?php 
