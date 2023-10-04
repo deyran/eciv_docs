@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentos</title>
+    <title>Recibo de pagamento</title>
 </head>
-<body style="font-family: 'Courier New', Courier, monospace;">
-    <h1 style="text-align: center;">Recibo de pagamento</h1><?php
-
+<body style="font-family: 'Courier New', Courier, monospace;"><?php
     include("../model/DataBase.php");
     include("../model/DataTrat.php");
 
@@ -31,7 +29,12 @@
     $selected = "";
     if($Turma == "") $selected = "selected";?>
 
-    <form method="post">
+    <form method="post" id="frmReportPag">         
+    <!--onchange="document.getElementById('frmReportPag').submit()"-->
+        <div align="center">
+            <input type="submit" value="  Ok  ">
+        </div><br />
+
         <table border="0" align="center">
         <tr><td valign="top">
             Turma<br />
@@ -52,87 +55,83 @@
                 }?>
             </select>
         </td><td valign="top">
-            Responsavel <br /><?php
-            if($Turma != "")
-            {
-                $SQL_QUERY_AUX = "";
-                if($Responsavel != "") 
+            Responsavel <br />
+            <select name="Responsavel" style="width: 200px;"><?php
+                if($Turma != "")
                 {
-                    $SQL_QUERY_AUX = 
-                    " AND R.Responsavel='$Responsavel'";
-                }
-                
-                $SQL_QUERY = "
-                SELECT R.Responsavel, R.Aluno, R.Valor
-                FROM respvalor AS R
-                WHERE R.TURMA='$Turma'
-                $SQL_QUERY_AUX
-                ORDER BY R.Responsavel;";
+                    $SQL_QUERY_AUX = "";
+                    if($Responsavel != "") 
+                    {
+                        $SQL_QUERY_AUX = 
+                        " AND R.Responsavel='$Responsavel'";
+                    }
+                    
+                    $SQL_QUERY = "
+                    SELECT R.Responsavel, R.Aluno, R.Valor
+                    FROM respvalor AS R
+                    WHERE R.TURMA='$Turma'
+                    $SQL_QUERY_AUX
+                    ORDER BY R.Responsavel;";
 
-               // echo $SQL_QUERY;
+                // echo $SQL_QUERY;
 
-                $DataBaseObj = new DataBase(); 
-                $DataBaseObj->connection_bd();
+                    $DataBaseObj = new DataBase(); 
+                    $DataBaseObj->connection_bd();
 
-                $RESULT_DB    = $DataBaseObj->getConnecation()->query($SQL_QUERY);
-                $NUM_LINES_DB = mysqli_affected_rows($DataBaseObj->getConnecation());
+                    $RESULT_DB    = $DataBaseObj->getConnecation()->query($SQL_QUERY);
+                    $NUM_LINES_DB = mysqli_affected_rows($DataBaseObj->getConnecation());
 
-                if($NUM_LINES_DB > 0) 
-                {?>
-                    <select name="Responsavel"><?php
+                    if($NUM_LINES_DB > 0) 
+                    {
                         while($DADOS_ROW = mysqli_fetch_array($RESULT_DB, MYSQLI_NUM))
                         {
                             $Aluno = $DADOS_ROW[1];
                             $Valor = $DADOS_ROW[2];?>
-                           <option value="<?php echo $DADOS_ROW[0];?>"><?php
+                            <option value="<?php echo $DADOS_ROW[0];?>"><?php
                                 echo $DADOS_ROW[0];?>
-                           </option><?php
-                        }?>
-                    </select><?php    
-                }
-                
-            }?>
+                            </option><?php
+                        }
+                    }
+                }?>
+            </select>
         </td><?php 
             if($Responsavel != "")
             {?>
                 <td valign="top">
                     Aluno(a)<br />
                     <input type="text" readonly value="<?php echo $Aluno;?>" />
-                </td><td valign="top">
-                    Parcela(a)<br />
-                </td><td valign="top">
-                    Valor(a)<br />
-                    <input type="text" value="<?php echo $Valor;?>" />
-                </td><?php
+                </td>
+                
+                
+                <?php
             }?>
-        </tr>
-        <tr><td colspan="5" align="center">
-            <input type="submit" value="  Ok  ">
-        </td></tr>
-        </table>
-    </form><?php 
+        </tr><?php 
 
-   /* $SQL_QUERY = "
-    SELECT R.* 
-    FROM recibolivro as R  ";
-
-    $DataBaseObj = new DataBase(); 
-    $DataBaseObj->connection_bd();
-    
-    $RESULT_DB    = $DataBaseObj->getConnecation()->query($SQL_QUERY);
-    $NUM_LINES_DB = mysqli_affected_rows($DataBaseObj->getConnecation());
-    
-    if($NUM_LINES_DB > 0) 
-    {
-        while($DADOS_ROW = mysqli_fetch_array($RESULT_DB, MYSQLI_NUM))
-        {
-            echo $DADOS_ROW[0] 
-                ." - " .$DADOS_ROW[1] 
-                ." - " .$DADOS_ROW[2] 
-                ." - " .$DADOS_ROW[3] 
-                ." - " .$DADOS_ROW[4]
-                ."<br />";
-        }    
-    }*/?>
+        if($Responsavel != "")
+        {?>
+            <tr>
+            <td valign="top">
+                Parcela(a)<br /><?php 
+                $meses = 
+                array("Janeiro", "Fevereiro", "Março", "Abril", 
+                        "Maio","Junho",  "Julho", "Agosto", 
+                        "Setembro", "Outubro", "Novembro", "Dezembro");
+                        
+                for ($i = 0; $i < count($meses); $i++) {
+                    $Parcela = $DataTratObj->encoding($meses[$i]);?>
+                    <div>
+                        <input type="checkbox" 
+                            id="checkbox" name="Parcelas" 
+                            value="<?php echo $Parcela;?>">&nbsp;<?php echo $Parcela;?>
+                    </div><?php
+                }?>
+            </td><td valign="top">
+                Valor(a)<br />
+                <input type="text" value="<?php echo $Valor;?>" />
+            </td><td>&nbsp;</td>
+            </tr><?php
+        }?>
+        </table><br />
+    </form>
 </body>
 </html>
