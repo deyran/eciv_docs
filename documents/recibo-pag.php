@@ -57,5 +57,8 @@ $pdf->SetFont("Courier", "", 12);
 $pdf->MultiCell(0, 3, $Assinatura,0);
 //------------------------------------------------
 
+$pdf->Image("img/AssinaturaDeyvid.png", 65, 90, 80, 10);
+//------------------------------------------------
+
 $pdf->Output(); 
 ?>
